@@ -26,7 +26,7 @@ this.nameStorage || (function(win, undefined){
       var match = name.split(/[:?]/);
 
       match.shift();                      // scheme: match[0];
-      ORIGIN_NAME = match.shift() || "";  // match[1]
+      ORIGIN_NAME = decodeURIComponent(match.shift()) || "";  // match[1]
 
       var params = match.join("");        // match[2,...]
 
@@ -43,7 +43,7 @@ this.nameStorage || (function(win, undefined){
 
     }else{
 
-      ORIGIN_NAME = name || "";
+      ORIGIN_NAME = decodeURIComponent(name) || "";
 
     }
 
@@ -100,7 +100,8 @@ this.nameStorage || (function(win, undefined){
 
     }
 
-    win.name = empty ? ORIGIN_NAME : SCHEME + ORIGIN_NAME + Q + pairs.join(AND);
+    win.name = empty ? ORIGIN_NAME :
+      SCHEME + encodeURIComponent(ORIGIN_NAME) + Q + pairs.join(AND);
   }
 
   win.nameStorage = nameStorage;
