@@ -12,7 +12,7 @@ this.nameStorage || (function(win, undefined){
   var AND = "&";
 
   var STORAGE = {};
-  var ORIGIN_NAME = "";
+  var ORIGIN_NAME;
 
   var nameStorage = {};
 
@@ -25,7 +25,7 @@ this.nameStorage || (function(win, undefined){
 
       var match = name.split(/[:?]/);
 
-      match.shift();                      // match[0];
+      match.shift();                      // scheme: match[0];
       ORIGIN_NAME = match.shift() || "";  // match[1]
 
       var params = match.join("");        // match[2,...]
@@ -33,7 +33,7 @@ this.nameStorage || (function(win, undefined){
       var pairs = params.split(AND);
       for(var i=0,pair,key,value,l=pairs.length; i<l; i++){
         pair = pairs[i].match(RE_PAIR);
-        if(!pair){continue;}
+        if(!pair || !pair[1]){continue;}
 
         key = decodeURIComponent(pair[1]);
         value = decodeURIComponent(pair[2]) || "";
@@ -53,6 +53,7 @@ this.nameStorage || (function(win, undefined){
   // @param {String} key, 键名。
   // @param {String} value, 键值。
   nameStorage.setItem = function(key, value){
+    if(!key){return;}
     STORAGE[key] = value;
     save();
   };
@@ -67,6 +68,7 @@ this.nameStorage || (function(win, undefined){
   // 移除数据。
   // @param {String} key, 键名。
   nameStorage.removeItem = function(key){
+    if(!STORAGE.hasOwnProperty(key)){return;}
     STORAGE[key] = null;
     delete STORAGE[key];
     save();
