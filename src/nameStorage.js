@@ -84,6 +84,10 @@ this.nameStorage || (function(win, undefined){
     return STORAGE;
   };
 
+  nameStorage.toString = function(){
+    return win.name;
+  };
+
   // 保存数据到 window.name
   // 如果没有存储数据，则恢复原始窗口名称(window.name)。
   function save(){
