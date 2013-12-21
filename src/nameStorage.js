@@ -57,7 +57,7 @@ this.nameStorage || (function(win){
   // @param {String} value, 键值。
   nameStorage.setItem = function(key, value){
     if(!key){return;}
-    STORAGE[key] = value;
+    STORAGE[key] = String(value || "");
     save();
   };
 
