@@ -2,7 +2,7 @@
 //
 // 利用 window.name 实现跨页面跨域的数据传输。
 
-this.nameStorage || (function(win, undefined){
+this.nameStorage || (function(win){
 
   var SCHEME = "nameStorage:";
   //var RE_NAMES = /^nameStorage:([^?]*)(?:\?(?:([^=]+)=([^&]*))*)?/g;
@@ -10,6 +10,9 @@ this.nameStorage || (function(win, undefined){
   var Q = "?";
   var EQ = "=";
   var AND = "&";
+
+  var encode = encodeURIComponent;
+  var decode = decodeURIComponent;
 
   var STORAGE = {};
   var ORIGIN_NAME;
@@ -26,7 +29,7 @@ this.nameStorage || (function(win, undefined){
       var match = name.split(/[:?]/);
 
       match.shift();                      // scheme: match[0];
-      ORIGIN_NAME = decodeURIComponent(match.shift()) || "";  // match[1]
+      ORIGIN_NAME = decode(match.shift()) || "";  // match[1]
 
       var params = match.join("");        // match[2,...]
 
@@ -35,15 +38,15 @@ this.nameStorage || (function(win, undefined){
         pair = pairs[i].match(RE_PAIR);
         if(!pair || !pair[1]){continue;}
 
-        key = decodeURIComponent(pair[1]);
-        value = decodeURIComponent(pair[2]) || "";
+        key = decode(pair[1]);
+        value = decode(pair[2]) || "";
 
         STORAGE[key] = value;
       }
 
     }else{
 
-      ORIGIN_NAME = decodeURIComponent(name) || "";
+      ORIGIN_NAME = decode(name) || "";
 
     }
 
@@ -100,12 +103,12 @@ this.nameStorage || (function(win, undefined){
       empty = false;
 
       value = STORAGE[key] || "";
-      pairs.push( encodeURIComponent(key) + EQ + encodeURIComponent(value) );
+      pairs.push( encode(key) + EQ + encode(value) );
 
     }
 
     win.name = empty ? ORIGIN_NAME :
-      SCHEME + encodeURIComponent(ORIGIN_NAME) + Q + pairs.join(AND);
+      SCHEME + encode(ORIGIN_NAME) + Q + pairs.join(AND);
   }
 
   win.nameStorage = nameStorage;
