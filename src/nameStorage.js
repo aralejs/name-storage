@@ -46,7 +46,7 @@ this.nameStorage || (function(win){
 
     }else{
 
-      ORIGIN_NAME = decode(name) || "";
+      ORIGIN_NAME = name || "";
 
     }
 
@@ -56,8 +56,8 @@ this.nameStorage || (function(win){
   // @param {String} key, 键名。
   // @param {String} value, 键值。
   nameStorage.setItem = function(key, value){
-    if(!key){return;}
-    STORAGE[key] = String(value || "");
+    if(!key || "undefined"===typeof value){return;}
+    STORAGE[key] = String(value);
     save();
   };
 
@@ -88,7 +88,8 @@ this.nameStorage || (function(win){
   };
 
   nameStorage.toString = function(){
-    return win.name;
+    var name = win.name;
+    return name.indexOf(SCHEME)===0 ? name : SCHEME + name;
   };
 
   // 保存数据到 window.name
