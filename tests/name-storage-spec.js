@@ -13,7 +13,7 @@ define(function(require) {
   window.name = ORIGIN_NAME;
 
   var expect = require("expect");
-  var nameStorage = require('../src/nameStorage');
+  var nameStorage = require('../src/name-storage');
 
   describe('nameStorage: '+ORIGIN_NAME, function() {
 
