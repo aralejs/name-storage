@@ -4,15 +4,17 @@
 
 nameStorage 是类似 sessionStroage 的键值对数据存储工具，但是可以跨域。
 
+nameStorage 适用于同一窗口内跨页面数据存储与传递。
+
 技术上，nameStorage 使用 window.name 存储数据。
 数据的生存周期为窗口会话的生存周期，同一个窗口可以通过 nameStorage 共享数据。
 
 ## 出生证明
 
-`window.name` 非常有用，`window.name` 不可滥用。
-为了规范、简单便利的使用 `window.name`，制造了这个模块。
+`window.name` 非常有用，但不可滥用。
+为了规范、简单便利、安全的使用 `window.name`，制造了这个模块。
 
-更多请参考 [`window.name` 使用规范](docs/window.name-spec.md)。
+更多请参考 `window.name` 使用规范。
 
 ## 使用说明
 
@@ -49,3 +51,29 @@ nameStorage.removeItem(key);
 ### valueOf()
 
 读取 nameStorage 存储的所有数据。
+
+### toString()
+
+返回 nameStorage 存储的数据的字符串形式。
+
+```
+    scheme                  nameStorage datas
+      |                            |
+------------           ------------------------
+nameStorage:origin-name?key1=value1&key2=value2
+            -----------
+                 |
+         window origin name
+```
+
+## window.name 使用规范
+
+1. 不要直接操作 `window.name`。
+1. 几乎所有的 `window.name` 操作，均应使用 nameStorage 提供的接口完成。
+1. 使用 nameStorage 传输完数据后，尽量在恰当的时机使用 `removeItem()` 清理对应数据。
+1. 主意：为了避免误清理其他人的数据，尽量使用 `removeItem()` 清理指定数据，
+    而不是 `clear()` 清空所有数据。
+
+## LICENSES
+
+MIT
