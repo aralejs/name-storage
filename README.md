@@ -74,6 +74,15 @@ nameStorage:origin-name?key1=value1&key2=value2
 1. 主意：为了避免误清理其他人的数据，尽量使用 `removeItem()` 清理指定数据，
     而不是 `clear()` 清空所有数据。
 
+## window.name maxlength
+
+window.name 没有固定的长度限制，只受内存大小限制。
+
+## 参考
+
+* [Improve cross-domain communication with client-side solutions](http://www.ibm.com/developerworks/library/wa-crossdomaincomm/)
+* [HTML5 sessionStorage for "every" browsers](https://code.google.com/p/sessionstorage/)
+
 ## LICENSES
 
 MIT
