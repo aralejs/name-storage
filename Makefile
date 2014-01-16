@@ -3,13 +3,13 @@ THEME = $(HOME)/.spm/themes/arale
 build:
 	@spm build
 publish:
-	@spm publish -s alipay
+	@spm publish -s spmjs
 
 build-doc:
 	@nico build -C $(THEME)/nico.js
 
 publish-doc: clean build-doc
-	@spm publish --doc _site -s alipay
+	@spm publish --doc _site -s spmjs
 
 server:
 	@nico server -C $(THEME)/nico.js
