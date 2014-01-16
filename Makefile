@@ -1,5 +1,10 @@
 THEME = $(HOME)/.spm/themes/arale
 
+build:
+	@spm build
+publish:
+	@spm publish -s alipay
+
 build-doc:
 	@nico build -C $(THEME)/nico.js
 

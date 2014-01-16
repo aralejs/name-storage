@@ -1,6 +1,6 @@
 {
-  "family": "alipay",
-  "name": "nameStorage",
+  "family": "arale",
+  "name": "name-storage",
   "version": "1.0.0",
   "description": "Storage on window.name",
   "homepage": "https://github.com/aralejs/name-storage",
@@ -11,6 +11,9 @@
   },
   "bugs": {
     "url": "https://github.com/aralejs/name-storage/issues"
+  },
+  "scripts": {
+    "prepublish": "spm build"
   },
   "keywords": ["utility"],
   "licenses": "MIT",
