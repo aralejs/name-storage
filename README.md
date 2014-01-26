@@ -5,7 +5,6 @@
 [![Build Status](https://secure.travis-ci.org/aralejs/name-storage.png?branch=master)](https://travis-ci.org/aralejs/name-storage)
 [![Coverage Status](https://coveralls.io/repos/aralejs/name-storage/badge.png?branch=master)](https://coveralls.io/r/aralejs/name-storage)
 
-
 nameStorage 是类似 sessionStroage 的键值对数据存储工具，但是可以跨域。
 
 nameStorage 适用于同一窗口内跨页面数据存储与传递。
