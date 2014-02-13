@@ -13,12 +13,14 @@ define(function(require) {
   window.name = ORIGIN_NAME;
 
   var expect = require("expect");
-  var nameStorage = require('../src/name-storage');
 
   describe('nameStorage: '+ORIGIN_NAME, function() {
 
-    it('init', function() {
-      expect(nameStorage.toString()).to.equal(toString(ORIGIN_NAME));
+    it('init', function(done) {
+      require.async('name-storage', function(nameStorage){
+        expect(nameStorage.toString()).to.equal(toString(ORIGIN_NAME));
+        done();
+      });
     });
 
     it('nameStorage.setItem() and getItem()', function() {
@@ -40,7 +42,7 @@ define(function(require) {
       nameStorage.setItem(key, val);
       nameStorage.clear();
       expect(nameStorage.getItem(key)).to.equal(null);
-      expect(nameStorage.toString()).to.equal(toString(""));
+      expect(nameStorage.toString()).to.equal(toString(ORIGIN_NAME).replace(/\?.*/, ""));
     });
 
   });
