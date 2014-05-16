@@ -1,7 +1,7 @@
 {
-  "name": "arale-name-storage",
+  "name": "name-storage",
   "version": "1.1.0",
-  "description": "Storage on window.name",
+  "description": "Storage via window.name",
   "homepage": "https://github.com/aralejs/name-storage",
   "author": "闲耘<hotoo.cn@gmail.com>",
   "repository": {
