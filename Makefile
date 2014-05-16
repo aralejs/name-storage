@@ -6,7 +6,7 @@ install:
 build:
 	@spm build
 
-publish: build publish-doc
+publish: clean publish-doc
 	@spm publish
 	@git tag $(version)
 	@git push origin $(version)
