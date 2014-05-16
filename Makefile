@@ -1,34 +1,31 @@
 THEME = $(HOME)/.spm/themes/arale
 
+install:
+	@spm install
+
 build:
 	@spm build
 publish:
-	@spm publish -s spmjs
+	@spm publish
 
 build-doc:
-	@nico build -C $(THEME)/nico.js
+	@spm doc build
 
 publish-doc: clean build-doc
-	@spm publish --doc _site -s spmjs
-
-server:
-	@nico server -C $(THEME)/nico.js
+	@spm doc publish
 
 watch:
-	@nico server -C $(THEME)/nico.js --watch
+	@spm doc watch
 
 clean:
 	@rm -fr _site
 
 
 runner = _site/tests/runner.html
-test-src:
+
+test:
+	@spm test
 	@mocha-browser ${runner} -S
-
-test-dist:
-	@mocha-browser ${runner}?dist -S
-
-test: test-src test-dist
 
 output = _site/coverage.html
 coverage: build-doc
