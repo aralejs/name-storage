@@ -1,12 +1,15 @@
-THEME = $(HOME)/.spm/themes/arale
+version = $(shell cat package.json | grep version | awk -F'"' '{print $$4}')
 
 install:
 	@spm install
 
 build:
 	@spm build
-publish:
+
+publish: build publish-doc
 	@spm publish
+	@git tag $(version)
+	@git push origin $(version)
 
 build-doc:
 	@spm doc build
