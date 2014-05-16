@@ -3,7 +3,7 @@
 ---
 
 ````javascript
-seajs.use('name-storage', function(nameStorage){
+seajs.use('../index', function(nameStorage){
 
   var key = "key";
   var val = "value";
