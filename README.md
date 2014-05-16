@@ -2,6 +2,7 @@
 
 ---
 
+[![spm package](http://spmjs.io/badge/name-storage)](http://spmjs.io/package/name-storage)
 [![Build Status](https://secure.travis-ci.org/aralejs/name-storage.png?branch=master)](https://travis-ci.org/aralejs/name-storage)
 [![Coverage Status](https://coveralls.io/repos/aralejs/name-storage/badge.png?branch=master)](https://coveralls.io/r/aralejs/name-storage)
 
