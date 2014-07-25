@@ -4,7 +4,7 @@ install:
 	@spm install
 
 build:
-	@spm build
+	@zpm build
 
 publish: clean publish-doc
 	@spm publish
@@ -28,7 +28,6 @@ runner = _site/tests/runner.html
 
 test:
 	@spm test
-	@mocha-browser ${runner} -S
 
 output = _site/coverage.html
 coverage: build-doc
