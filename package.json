@@ -1,6 +1,6 @@
 {
   "name": "name-storage",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Storage via window.name",
   "homepage": "https://github.com/aralejs/name-storage",
   "author": "闲耘<hotoo.cn@gmail.com>",
@@ -10,9 +10,6 @@
   },
   "bugs": {
     "url": "https://github.com/aralejs/name-storage/issues"
-  },
-  "scripts": {
-    "prepublish": "spm build"
   },
   "keywords": ["utility"],
   "licenses": "MIT",
