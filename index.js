@@ -17,6 +17,7 @@ var decode = decodeURIComponent;
 var STORAGE = {};
 var ORIGIN_NAME;
 
+var data = {};
 var nameStorage = {};
 
 // 解析并初始化 name 数据。
@@ -112,6 +113,26 @@ function save(){
     SCHEME + encode(ORIGIN_NAME) + Q + pairs.join(AND);
 }
 
+// addEventLister implementation
+// @param {HTMLElement} element.
+// @param {String} eventName.
+// @param {Function} handler.
+function addEventListener(element, eventName, handler) {
+  if (!element){return;}
+
+  if(element.addEventListener) {
+    element.addEventListener(eventName, handler, false);
+  } else if(element.attachEvent) {
+    element.attachEvent('on' + eventName, function(evt) {
+      handler.call(element, evt);
+    });
+  }
+}
+
+// Save the last data for the next page.
+addEventListener(win, 'beforeunload', function(){
+  save()
+});
 
 win.nameStorage = nameStorage;
 
