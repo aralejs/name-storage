@@ -22,3 +22,5 @@ _site
 sea-modules
 .cache
 dist
+coverage/
+spm_modules/
