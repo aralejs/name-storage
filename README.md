@@ -2,10 +2,10 @@
 
 ---
 
-[![NPM version](https://badge.fury.io/js/name-storage.png) ](http://badge.fury.io/js/name-storage)
-[![spm package](http://spmjs.io/badge/name-storage) ](http://spmjs.io/package/name-storage)
-[![Build Status](https://secure.travis-ci.org/aralejs/name-storage.png?branch=master) ](https://travis-ci.org/aralejs/name-storage)
-[![Coverage Status](https://coveralls.io/repos/aralejs/name-storage/badge.png?branch=master) ](https://coveralls.io/r/aralejs/name-storage)
+[![NPM version](https://badge.fury.io/js/name-storage.png)](http://badge.fury.io/js/name-storage)
+[![spm package](http://spmjs.io/badge/name-storage)](http://spmjs.io/package/name-storage)
+[![Build Status](https://secure.travis-ci.org/aralejs/name-storage.png?branch=master)](https://travis-ci.org/aralejs/name-storage)
+[![Coverage Status](https://coveralls.io/repos/aralejs/name-storage/badge.png?branch=master)](https://coveralls.io/r/aralejs/name-storage)
 
 nameStorage 是类似 sessionStroage 的键值对数据存储工具，但是可以跨域。
 
@@ -62,9 +62,9 @@ nameStorage.removeItem(key);
 返回 nameStorage 存储的数据的字符串形式。
 
 ```
-    scheme nameStorage datas
-      | |
------------- ------------------------
+    scheme                  nameStorage datas
+      |                            |
+------------           ------------------------
 nameStorage:origin-name?key1=value1&key2=value2
             -----------
                  |
