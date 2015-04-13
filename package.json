@@ -2,6 +2,7 @@
   "name": "name-storage",
   "version": "1.3.0",
   "description": "Storage via window.name",
+  "keywords": ["arale", "utility"],
   "homepage": "https://github.com/aralejs/name-storage",
   "author": "闲耘<hotoo.cn@gmail.com>",
   "repository": {
@@ -11,12 +12,15 @@
   "bugs": {
     "url": "https://github.com/aralejs/name-storage/issues"
   },
-  "keywords": ["utility"],
-  "licenses": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "expect.js": "0.3.1"
+  },
   "spm": {
     "main": "index.js",
     "devDependencies": {
       "expect.js": "0.3.1"
     }
-  }
+  },
+  "licenses": "MIT"
 }
